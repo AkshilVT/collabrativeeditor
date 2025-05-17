@@ -30,7 +30,6 @@ function App() {
     <div
       className="fixed inset-0 min-h-screen min-w-full flex items-center justify-center"
       style={{
-        background: "linear-gradient(to bottom, #EAF0F8 0%, #D6E4F0 100%)",
         fontFamily: "'Inter', sans-serif",
       }}
     >
@@ -76,8 +75,8 @@ function App() {
         </header>
         <div className="flex flex-1 w-full items-center justify-center gap-x-10 px-12 pb-12 pt-4 h-[calc(100vh-90px)]">
           {/* Sidebar */}
-          <aside className="flex flex-col justify-center gap-y-12 h-full min-w-[220px]">
-            <div className="flex flex-col gap-4">
+          <aside className="flex flex-col justify-between h-full min-w-[260px] max-w-xs px-6 py-10 bg-white/30 backdrop-blur-lg rounded-3xl shadow-xl border border-white/40 transition-all">
+            <div className="flex flex-col gap-6">
               {[
                 { key: "markdown", label: "Markdown Editor" },
                 { key: "richText", label: "Rich Text" },
@@ -86,11 +85,11 @@ function App() {
                 <button
                   key={tab.key}
                   onClick={() => setActiveEditor(tab.key as any)}
-                  className={`w-52 py-3 text-base font-medium rounded-xl transition-all border border-transparent
+                  className={`w-full py-3 text-base font-medium rounded-xl transition-all border
                     ${
                       activeEditor === tab.key
-                        ? "bg-white text-blue-600 shadow-[0_4px_16px_0_rgba(59,130,246,0.10),0_1.5px_4px_0_rgba(255,255,255,0.7)_inset] border-blue-200"
-                        : "bg-white/70 text-gray-700 shadow-[0_2px_8px_0_rgba(59,130,246,0.06),0_1.5px_4px_0_rgba(255,255,255,0.7)_inset] hover:shadow-[0_4px_16px_0_rgba(59,130,246,0.13),0_1.5px_4px_0_rgba(255,255,255,0.8)_inset]"
+                        ? "bg-white text-blue-600 border-blue-400 shadow-lg"
+                        : "bg-white/60 text-gray-700 border-transparent hover:bg-white/80 hover:shadow-md"
                     }
                   `}
                   style={{ fontFamily: "Inter, sans-serif" }}
@@ -99,11 +98,10 @@ function App() {
                 </button>
               ))}
             </div>
-            <div className="bg-white/70 rounded-xl shadow-[0_2px_8px_0_rgba(59,130,246,0.06),0_1.5px_4px_0_rgba(255,255,255,0.7)_inset] p-4 flex flex-col items-center gap-4">
+            <div className="mt-10 bg-white/40 rounded-2xl shadow-lg border border-white/50 p-5 flex flex-col items-center gap-4">
               <span className="text-base font-semibold text-gray-700 mb-1">
                 Active Users
               </span>
-              {/* Example avatars, replace with real avatars if available */}
               <div className="flex flex-col gap-3">
                 <div className="relative">
                   <img
@@ -134,8 +132,8 @@ function App() {
           </aside>
           {/* Editor Area */}
           <main className="flex-1 flex flex-col items-center justify-center h-full">
-            <div className="relative w-full max-w-3xl h-full rounded-2xl bg-white/40 backdrop-blur-lg shadow-lg p-10 dotted-grid flex flex-col items-center justify-start">
-              <div className="w-full">
+            <div className="relative w-full max-w-3xl h-full glass-bg p-10 dotted-grid flex flex-col items-center justify-start">
+              <div className="w-full h-full flex flex-col">
                 <div
                   className="text-2xl font-bold text-gray-800 mb-6 text-left"
                   style={{ fontFamily: "Inter, sans-serif" }}
@@ -144,8 +142,8 @@ function App() {
                   {activeEditor === "richText" && "Rich Text Editor"}
                   {activeEditor === "code" && "Code Editor"}
                 </div>
-                {/* Scrollable editor area only */}
-                <div className="flex-1 min-h-0 max-h-[calc(100vh-320px)] overflow-auto rounded-xl">
+                {/* Only the editor area will scroll */}
+                <div className="flex-1 min-h-0 max-h-[calc(100vh-320px)] rounded-xl">
                   {renderEditor()}
                 </div>
               </div>

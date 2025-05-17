@@ -55,19 +55,21 @@ export function RichTextEditor() {
   return (
     <div className="h-full flex flex-col">
       {/* Toolbar */}
-      <div className="border-b border-gray-200 p-2 flex items-center gap-4 bg-transparent">
+      <div className="border-b border-gray-200 p-2 pb-4 flex items-center gap-4 bg-transparent">
         <button
           onClick={() => editor?.chain().focus().toggleBold().run()}
-          className={`px-5 py-2 bg-white shadow rounded-full font-semibold text-gray-700 text-lg hover:bg-blue-50 border border-gray-100 transition-all${
-            editor?.isActive("bold") ? " ring-2 ring-blue-200" : ""
+          className={`px-5 py-2 glass-btn-bg shadow rounded-full font-semibold text-gray-700 text-lg hover:bg-white border border-gray-100 transition-all${
+            editor?.isActive("bold") ? " ring-2 ring-blue-200 !bg-blue-50 " : ""
           }`}
         >
           B
         </button>
         <button
           onClick={() => editor?.chain().focus().toggleItalic().run()}
-          className={`px-5 py-2 bg-white shadow rounded-full font-semibold text-gray-700 text-lg hover:bg-blue-50 border border-gray-100 transition-all${
-            editor?.isActive("italic") ? " ring-2 ring-blue-200" : ""
+          className={`px-5 py-2 glass-btn-bg shadow rounded-full font-semibold text-gray-700 text-lg hover:bg-white border border-gray-100 transition-all${
+            editor?.isActive("italic")
+              ? " ring-2 ring-blue-200 !bg-blue-50 "
+              : ""
           }`}
         >
           /
@@ -76,9 +78,9 @@ export function RichTextEditor() {
           onClick={() =>
             editor?.chain().focus().toggleHeading({ level: 1 }).run()
           }
-          className={`px-5 py-2 bg-white shadow rounded-full font-semibold text-gray-700 text-lg hover:bg-blue-50 border border-gray-100 transition-all${
+          className={`px-5 py-2 glass-btn-bg shadow rounded-full font-semibold text-gray-700 text-lg hover:bg-white border border-gray-100 transition-all${
             editor?.isActive("heading", { level: 1 })
-              ? " ring-2 ring-blue-200"
+              ? " ring-2 ring-blue-200 !bg-blue-50 "
               : ""
           }`}
         >
@@ -88,9 +90,9 @@ export function RichTextEditor() {
           onClick={() =>
             editor?.chain().focus().toggleHeading({ level: 2 }).run()
           }
-          className={`px-5 py-2 bg-white shadow rounded-full font-semibold text-gray-700 text-lg hover:bg-blue-50 border border-gray-100 transition-all${
+          className={`px-5 py-2 glass-btn-bg shadow rounded-full font-semibold text-gray-700 text-lg hover:bg-white border border-gray-100 transition-all${
             editor?.isActive("heading", { level: 2 })
-              ? " ring-2 ring-blue-200"
+              ? " ring-2 ring-blue-200 !bg-blue-50 "
               : ""
           }`}
         >
@@ -98,16 +100,20 @@ export function RichTextEditor() {
         </button>
         <button
           onClick={() => editor?.chain().focus().toggleBulletList().run()}
-          className={`px-5 py-2 bg-white shadow rounded-full font-semibold text-gray-700 text-lg hover:bg-blue-50 border border-gray-100 transition-all${
-            editor?.isActive("bulletList") ? " ring-2 ring-blue-200" : ""
+          className={`px-5 py-2 glass-btn-bg shadow rounded-full font-semibold text-gray-700 text-lg hover:bg-white border border-gray-100 transition-all${
+            editor?.isActive("bulletList")
+              ? " ring-2 ring-blue-200 !bg-blue-50 "
+              : ""
           }`}
         >
           •
         </button>
         <button
           onClick={() => editor?.chain().focus().toggleOrderedList().run()}
-          className={`px-5 py-2 bg-white shadow rounded-full font-semibold text-gray-700 text-lg hover:bg-blue-50 border border-gray-100 transition-all${
-            editor?.isActive("orderedList") ? " ring-2 ring-blue-200" : ""
+          className={`px-5 py-2 glass-btn-bg shadow rounded-full font-semibold text-gray-700 text-lg hover:bg-white border border-gray-100 transition-all${
+            editor?.isActive("orderedList")
+              ? " ring-2 ring-blue-200 !bg-blue-50 "
+              : ""
           }`}
         >
           1.
@@ -115,7 +121,7 @@ export function RichTextEditor() {
       </div>
 
       {/* Editor */}
-      <div className="flex-1 overflow-auto p-4">
+      <div className="flex-1 overflow-auto m-4">
         <EditorContent editor={editor} />
       </div>
     </div>
