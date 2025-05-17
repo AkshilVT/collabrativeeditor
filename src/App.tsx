@@ -7,8 +7,7 @@ import { UserList } from "./components/UserList";
 
 function App() {
   const { activeEditor, setActiveEditor } = useStore();
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const [isUserListOpen, setIsUserListOpen] = useState(true);
+  const [isSidebarOpen] = useState(true);
 
   const renderEditor = () => {
     switch (activeEditor) {
@@ -28,112 +27,131 @@ function App() {
   };
 
   return (
-    <div className="h-screen flex flex-col bg-gray-50">
-      {/* Header */}
-      <header className="bg-white border-b border-gray-200 px-4 py-3 flex items-center justify-between">
-        <div className="flex items-center space-x-4">
-          <button
-            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-            className="p-2 rounded-md hover:bg-gray-100"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+    <div
+      className="fixed inset-0 min-h-screen min-w-full flex items-center justify-center"
+      style={{
+        background: "linear-gradient(to bottom, #EAF0F8 0%, #D6E4F0 100%)",
+        fontFamily: "'Inter', sans-serif",
+      }}
+    >
+      <div className="relative w-full h-full flex flex-col items-center justify-center">
+        {/* Navigation Bar */}
+        <header className="w-full flex items-center justify-between px-12 pt-10 pb-0">
+          <div className=" flex justify-center items-center gap-2">
+            <span
+              className="text-2xl font-bold text-gray-900 tracking-tight flex items-center gap-2"
+              style={{ fontFamily: "Inter, sans-serif", fontSize: 20 }}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </button>
-          <h1 className="text-xl font-semibold text-gray-900">
-            Collaborative Editor
-          </h1>
-        </div>
-        <div className="flex items-center space-x-4">
+              <span className="inline-block align-middle bg-white/40 rounded-full p-2 shadow-md">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 28 28"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="14"
+                    cy="14"
+                    r="12"
+                    fill="#EAF0F8"
+                    stroke="#3B82F6"
+                    strokeWidth="2"
+                  />
+                  <circle cx="14" cy="14" r="5" fill="#3B82F6" />
+                </svg>
+              </span>
+            </span>
+
+            <span className="text-2xl font-bold text-gray-900 tracking-tight">
+              SyncScribe
+            </span>
+          </div>
           <button
-            onClick={() => setIsUserListOpen(!isUserListOpen)}
-            className="p-2 rounded-md hover:bg-gray-100"
+            className="px-8 py-2 bg-[#3B82F6] text-white rounded-full shadow-lg font-semibold text-lg ml-auto hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 transition-all"
+            style={{ boxShadow: "0 4px 24px 0 #3B82F6AA" }}
           >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-              />
-            </svg>
-          </button>
-          <button className="px-4 py-2 bg-primary-600 text-white rounded-md hover:bg-primary-700">
             Share
           </button>
+        </header>
+        <div className="flex flex-1 w-full items-center justify-center gap-x-10 px-12 pb-12 pt-4 h-[calc(100vh-90px)]">
+          {/* Sidebar */}
+          <aside className="flex flex-col justify-center gap-y-12 h-full min-w-[220px]">
+            <div className="flex flex-col gap-4">
+              {[
+                { key: "markdown", label: "Markdown Editor" },
+                { key: "richText", label: "Rich Text" },
+                { key: "code", label: "Code Editor" },
+              ].map((tab) => (
+                <button
+                  key={tab.key}
+                  onClick={() => setActiveEditor(tab.key as any)}
+                  className={`w-52 py-3 text-base font-medium rounded-xl transition-all border border-transparent
+                    ${
+                      activeEditor === tab.key
+                        ? "bg-white text-blue-600 shadow-[0_4px_16px_0_rgba(59,130,246,0.10),0_1.5px_4px_0_rgba(255,255,255,0.7)_inset] border-blue-200"
+                        : "bg-white/70 text-gray-700 shadow-[0_2px_8px_0_rgba(59,130,246,0.06),0_1.5px_4px_0_rgba(255,255,255,0.7)_inset] hover:shadow-[0_4px_16px_0_rgba(59,130,246,0.13),0_1.5px_4px_0_rgba(255,255,255,0.8)_inset]"
+                    }
+                  `}
+                  style={{ fontFamily: "Inter, sans-serif" }}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+            <div className="bg-white/70 rounded-xl shadow-[0_2px_8px_0_rgba(59,130,246,0.06),0_1.5px_4px_0_rgba(255,255,255,0.7)_inset] p-4 flex flex-col items-center gap-4">
+              <span className="text-base font-semibold text-gray-700 mb-1">
+                Active Users
+              </span>
+              {/* Example avatars, replace with real avatars if available */}
+              <div className="flex flex-col gap-3">
+                <div className="relative">
+                  <img
+                    src="https://randomuser.me/api/portraits/women/44.jpg"
+                    alt="User 1"
+                    className="w-10 h-10 rounded-full border-2 border-white shadow"
+                  />
+                  <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full ring-2 ring-white shadow animate-pulse"></span>
+                </div>
+                <div className="relative">
+                  <img
+                    src="https://randomuser.me/api/portraits/men/32.jpg"
+                    alt="User 2"
+                    className="w-10 h-10 rounded-full border-2 border-white shadow"
+                  />
+                  <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full ring-2 ring-white shadow animate-pulse"></span>
+                </div>
+                <div className="relative">
+                  <img
+                    src="https://randomuser.me/api/portraits/women/68.jpg"
+                    alt="User 3"
+                    className="w-10 h-10 rounded-full border-2 border-white shadow"
+                  />
+                  <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full ring-2 ring-white shadow animate-pulse"></span>
+                </div>
+              </div>
+            </div>
+          </aside>
+          {/* Editor Area */}
+          <main className="flex-1 flex flex-col items-center justify-center h-full">
+            <div className="relative w-full max-w-3xl h-full rounded-2xl bg-white/40 backdrop-blur-lg shadow-lg p-10 dotted-grid flex flex-col items-center justify-start">
+              <div className="w-full">
+                <div
+                  className="text-2xl font-bold text-gray-800 mb-6 text-left"
+                  style={{ fontFamily: "Inter, sans-serif" }}
+                >
+                  {activeEditor === "markdown" && "Markdown Editor"}
+                  {activeEditor === "richText" && "Rich Text Editor"}
+                  {activeEditor === "code" && "Code Editor"}
+                </div>
+                {/* Scrollable editor area only */}
+                <div className="flex-1 min-h-0 max-h-[calc(100vh-320px)] overflow-auto rounded-xl">
+                  {renderEditor()}
+                </div>
+              </div>
+            </div>
+          </main>
         </div>
-      </header>
-
-      {/* Main Content */}
-      <div className="flex-1 flex overflow-hidden">
-        {/* Sidebar */}
-        <aside
-          className={`${
-            isSidebarOpen ? "w-64" : "w-0"
-          } bg-white border-r border-gray-200 transition-all duration-300 overflow-hidden`}
-        >
-          <nav className="p-4">
-            <ul className="space-y-2">
-              <li>
-                <button
-                  onClick={() => setActiveEditor("markdown")}
-                  className={`w-full text-left px-4 py-2 rounded-md ${
-                    activeEditor === "markdown"
-                      ? "bg-primary-50 text-primary-700"
-                      : "hover:bg-gray-100"
-                  }`}
-                >
-                  Markdown Editor
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => setActiveEditor("richText")}
-                  className={`w-full text-left px-4 py-2 rounded-md ${
-                    activeEditor === "richText"
-                      ? "bg-primary-50 text-primary-700"
-                      : "hover:bg-gray-100"
-                  }`}
-                >
-                  Rich Text Editor
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => setActiveEditor("code")}
-                  className={`w-full text-left px-4 py-2 rounded-md ${
-                    activeEditor === "code"
-                      ? "bg-primary-50 text-primary-700"
-                      : "hover:bg-gray-100"
-                  }`}
-                >
-                  Code Editor
-                </button>
-              </li>
-            </ul>
-          </nav>
-        </aside>
-
-        {/* Editor Area */}
-        <main className="flex-1 overflow-hidden">{renderEditor()}</main>
-
-        {/* User List */}
-        {isUserListOpen && <UserList />}
       </div>
     </div>
   );

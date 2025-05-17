@@ -29,31 +29,31 @@ export function MarkdownEditor() {
   return (
     <div className="h-full flex flex-col">
       {/* Toolbar */}
-      <div className="border-b border-gray-200 p-2 flex items-center space-x-2">
+      <div className="border-b border-gray-200 p-2 flex items-center gap-4 bg-transparent">
         <button
           onClick={() => editor?.chain().focus().toggleBold().run()}
-          className={`p-2 rounded ${
-            editor?.isActive("bold") ? "bg-gray-200" : "hover:bg-gray-100"
+          className={`px-5 py-2 bg-white shadow rounded-full font-semibold text-gray-700 text-lg hover:bg-blue-50 border border-gray-100 transition-all${
+            editor?.isActive("bold") ? " ring-2 ring-blue-200" : ""
           }`}
         >
-          Bold
+          B
         </button>
         <button
           onClick={() => editor?.chain().focus().toggleItalic().run()}
-          className={`p-2 rounded ${
-            editor?.isActive("italic") ? "bg-gray-200" : "hover:bg-gray-100"
+          className={`px-5 py-2 bg-white shadow rounded-full font-semibold text-gray-700 text-lg hover:bg-blue-50 border border-gray-100 transition-all${
+            editor?.isActive("italic") ? " ring-2 ring-blue-200" : ""
           }`}
         >
-          Italic
+          /
         </button>
         <button
           onClick={() =>
             editor?.chain().focus().toggleHeading({ level: 1 }).run()
           }
-          className={`p-2 rounded ${
+          className={`px-5 py-2 bg-white shadow rounded-full font-semibold text-gray-700 text-lg hover:bg-blue-50 border border-gray-100 transition-all${
             editor?.isActive("heading", { level: 1 })
-              ? "bg-gray-200"
-              : "hover:bg-gray-100"
+              ? " ring-2 ring-blue-200"
+              : ""
           }`}
         >
           H1
@@ -62,10 +62,10 @@ export function MarkdownEditor() {
           onClick={() =>
             editor?.chain().focus().toggleHeading({ level: 2 }).run()
           }
-          className={`p-2 rounded ${
+          className={`px-5 py-2 bg-white shadow rounded-full font-semibold text-gray-700 text-lg hover:bg-blue-50 border border-gray-100 transition-all${
             editor?.isActive("heading", { level: 2 })
-              ? "bg-gray-200"
-              : "hover:bg-gray-100"
+              ? " ring-2 ring-blue-200"
+              : ""
           }`}
         >
           H2

@@ -80,3 +80,11 @@
   @apply absolute top-0 left-0 -translate-y-full px-2 py-1 text-xs text-white rounded;
   font-family: monospace;
 }
+
+.dotted-grid {
+  background: repeating-radial-gradient(
+    circle,
+    #d1d5db 1px,
+    transparent 0 24px
+  );
+}

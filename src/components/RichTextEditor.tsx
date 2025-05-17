@@ -55,31 +55,31 @@ export function RichTextEditor() {
   return (
     <div className="h-full flex flex-col">
       {/* Toolbar */}
-      <div className="border-b border-gray-200 p-2 flex items-center space-x-2">
+      <div className="border-b border-gray-200 p-2 flex items-center gap-4 bg-transparent">
         <button
           onClick={() => editor?.chain().focus().toggleBold().run()}
-          className={`p-2 rounded ${
-            editor?.isActive("bold") ? "bg-gray-200" : "hover:bg-gray-100"
+          className={`px-5 py-2 bg-white shadow rounded-full font-semibold text-gray-700 text-lg hover:bg-blue-50 border border-gray-100 transition-all${
+            editor?.isActive("bold") ? " ring-2 ring-blue-200" : ""
           }`}
         >
-          Bold
+          B
         </button>
         <button
           onClick={() => editor?.chain().focus().toggleItalic().run()}
-          className={`p-2 rounded ${
-            editor?.isActive("italic") ? "bg-gray-200" : "hover:bg-gray-100"
+          className={`px-5 py-2 bg-white shadow rounded-full font-semibold text-gray-700 text-lg hover:bg-blue-50 border border-gray-100 transition-all${
+            editor?.isActive("italic") ? " ring-2 ring-blue-200" : ""
           }`}
         >
-          Italic
+          /
         </button>
         <button
           onClick={() =>
             editor?.chain().focus().toggleHeading({ level: 1 }).run()
           }
-          className={`p-2 rounded ${
+          className={`px-5 py-2 bg-white shadow rounded-full font-semibold text-gray-700 text-lg hover:bg-blue-50 border border-gray-100 transition-all${
             editor?.isActive("heading", { level: 1 })
-              ? "bg-gray-200"
-              : "hover:bg-gray-100"
+              ? " ring-2 ring-blue-200"
+              : ""
           }`}
         >
           H1
@@ -88,31 +88,29 @@ export function RichTextEditor() {
           onClick={() =>
             editor?.chain().focus().toggleHeading({ level: 2 }).run()
           }
-          className={`p-2 rounded ${
+          className={`px-5 py-2 bg-white shadow rounded-full font-semibold text-gray-700 text-lg hover:bg-blue-50 border border-gray-100 transition-all${
             editor?.isActive("heading", { level: 2 })
-              ? "bg-gray-200"
-              : "hover:bg-gray-100"
+              ? " ring-2 ring-blue-200"
+              : ""
           }`}
         >
           H2
         </button>
         <button
           onClick={() => editor?.chain().focus().toggleBulletList().run()}
-          className={`p-2 rounded ${
-            editor?.isActive("bulletList") ? "bg-gray-200" : "hover:bg-gray-100"
+          className={`px-5 py-2 bg-white shadow rounded-full font-semibold text-gray-700 text-lg hover:bg-blue-50 border border-gray-100 transition-all${
+            editor?.isActive("bulletList") ? " ring-2 ring-blue-200" : ""
           }`}
         >
-          Bullet List
+          •
         </button>
         <button
           onClick={() => editor?.chain().focus().toggleOrderedList().run()}
-          className={`p-2 rounded ${
-            editor?.isActive("orderedList")
-              ? "bg-gray-200"
-              : "hover:bg-gray-100"
+          className={`px-5 py-2 bg-white shadow rounded-full font-semibold text-gray-700 text-lg hover:bg-blue-50 border border-gray-100 transition-all${
+            editor?.isActive("orderedList") ? " ring-2 ring-blue-200" : ""
           }`}
         >
-          Numbered List
+          1.
         </button>
       </div>
 
