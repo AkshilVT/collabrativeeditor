@@ -9,13 +9,13 @@ interface User {
 }
 
 interface EditorState {
-  activeEditor: "markdown" | "richText" | "code" | null;
+  activeEditor: "markdown" | "richText" | "code";
   markdownEditor: Editor | null;
   richTextEditor: Editor | null;
   codeEditor: editor.IStandaloneCodeEditor | null;
   currentUser: User;
   users: User[];
-  setActiveEditor: (editor: "markdown" | "richText" | "code" | null) => void;
+  setActiveEditor: (editor: "markdown" | "richText" | "code") => void;
   setMarkdownEditor: (editor: Editor | null) => void;
   setRichTextEditor: (editor: Editor | null) => void;
   setCodeEditor: (editor: editor.IStandaloneCodeEditor | null) => void;
@@ -28,7 +28,7 @@ const generateRandomColor = () => {
 };
 
 export const useStore = create<EditorState>((set) => ({
-  activeEditor: null,
+  activeEditor: "markdown",
   markdownEditor: null,
   richTextEditor: null,
   codeEditor: null,

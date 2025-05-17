@@ -1,13 +1,10 @@
-import { useState } from "react";
 import { useStore } from "./store/useStore";
 import { MarkdownEditor } from "./components/MarkdownEditor";
 import { RichTextEditor } from "./components/RichTextEditor";
 import { CodeEditor } from "./components/CodeEditor";
-import { UserList } from "./components/UserList";
 
 function App() {
   const { activeEditor, setActiveEditor } = useStore();
-  const [isSidebarOpen] = useState(true);
 
   const renderEditor = () => {
     switch (activeEditor) {
@@ -43,21 +40,46 @@ function App() {
             >
               <span className="inline-block align-middle bg-white/40 rounded-full p-2 shadow-md">
                 <svg
-                  width="28"
-                  height="28"
-                  viewBox="0 0 28 28"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
+                  <defs>
+                    <radialGradient id="logo-bg" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stopColor="#e0e7ff" />
+                      <stop offset="100%" stopColor="#f0abfc" />
+                    </radialGradient>
+                    <radialGradient id="logo-inner" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stopColor="#a5b4fc" />
+                      <stop offset="100%" stopColor="#818cf8" />
+                    </radialGradient>
+                  </defs>
                   <circle
-                    cx="14"
-                    cy="14"
-                    r="12"
-                    fill="#EAF0F8"
-                    stroke="#3B82F6"
+                    cx="16"
+                    cy="16"
+                    r="14"
+                    fill="url(#logo-bg)"
+                    stroke="#a5b4fc"
                     strokeWidth="2"
+                    style={{ filter: "drop-shadow(0 2px 12px #a5b4fc55)" }}
                   />
-                  <circle cx="14" cy="14" r="5" fill="#3B82F6" />
+                  <circle
+                    cx="16"
+                    cy="16"
+                    r="6"
+                    fill="url(#logo-inner)"
+                    fillOpacity="0.85"
+                    style={{ filter: "blur(0.5px)" }}
+                  />
+                  <circle
+                    cx="16"
+                    cy="16"
+                    r="2"
+                    fill="#3B82F6"
+                    fillOpacity="0.9"
+                  />
                 </svg>
               </span>
             </span>
@@ -67,8 +89,8 @@ function App() {
             </span>
           </div>
           <button
-            className="px-8 py-2 bg-[#3B82F6] text-white rounded-full shadow-lg font-semibold text-lg ml-auto hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 transition-all"
-            style={{ boxShadow: "0 4px 24px 0 #3B82F6AA" }}
+            className="px-8 py-2 glass-btn-bg text-blue-700 rounded-full shadow-lg font-semibold text-lg ml-auto border border-blue-200 transition-all
+              hover:bg-white/70 active:bg-white/90 focus:ring-2 focus:ring-blue-200 focus:outline-none"
           >
             Share
           </button>
@@ -85,11 +107,12 @@ function App() {
                 <button
                   key={tab.key}
                   onClick={() => setActiveEditor(tab.key as any)}
-                  className={`w-full py-3 text-base font-medium rounded-xl transition-all border
+                  className={`w-full py-3 text-base font-medium rounded-xl transition-all border glass-btn-bg
+                    hover:bg-white/70
                     ${
                       activeEditor === tab.key
-                        ? "bg-white text-blue-600 border-blue-400 shadow-lg"
-                        : "bg-white/60 text-gray-700 border-transparent hover:bg-white/80 hover:shadow-md"
+                        ? "!bg-white text-blue-600 border-blue-400 shadow-lg"
+                        : " text-gray-700 border-transparent hover:shadow-md"
                     }
                   `}
                   style={{ fontFamily: "Inter, sans-serif" }}
