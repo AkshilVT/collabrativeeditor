@@ -1,0 +1,28 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Markdown Editor
+- Implement live preview functionality
+- Include word count feature
+- Support syntax highlighting
+- Enable export functionality
+
+# Rich Text Editor
+- Implement real-time collaboration
+- Show presence awareness
+- Display cursor positions
+- Support basic formatting options
+
+# Code Editor
+- Enable syntax highlighting
+- Show line numbers
+- Support multiple languages
+- Implement theme support
+
+# Real-time Collaboration
+- Use presence management
+- Track cursor positions
+- Implement document synchronization
+- Handle concurrent edits

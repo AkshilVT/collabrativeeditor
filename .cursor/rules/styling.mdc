@@ -1,0 +1,28 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Tailwind CSS
+- Follow design system guidelines [../../docs/design-system.md]
+- Implement responsive design
+- Support dark mode
+- Use spacing scale consistently
+
+# CSS Modules
+- Follow BEM methodology
+- Use CSS variables
+- Implement proper scoping
+- Maintain consistent naming
+
+# Accessibility
+- Use semantic HTML elements
+- Include ARIA attributes
+- Implement proper heading hierarchy
+- Support keyboard navigation
+
+# Performance
+- Optimize component rendering
+- Implement proper memoization
+- Use code splitting
+- Optimize asset loading

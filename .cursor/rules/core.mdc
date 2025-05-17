@@ -1,0 +1,28 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# TypeScript Standards
+- Enforce strict typing
+- No use of `any` type
+- Always use interfaces for object types
+- Leverage type inference where possible
+
+# React Standards
+- Use functional components exclusively
+- Include PropTypes for all components
+- Follow React hooks rules
+- Implement proper cleanup in useEffect
+
+# Component Structure
+- Use TypeScript for all components
+- Include JSDoc documentation
+- Define prop interfaces
+- Mark optional props appropriately
+
+# State Management
+- Use local state for component-specific state
+- Use context for global state
+- Implement loading and error states
+- Follow proper state update patterns

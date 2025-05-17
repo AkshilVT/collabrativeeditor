@@ -1,0 +1,26 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Documentation
+- Include JSDoc for components
+- Document props and interfaces
+- Add return type documentation
+- Maintain up-to-date README
+
+# Code Review Checklist
+- Verify TypeScript standards
+- Check React best practices
+- Review styling consistency
+- Validate performance optimizations
+- Ensure test coverage
+- Verify documentation quality
+- Check security measures
+- Validate accessibility compliance
+
+# Git Workflow
+- Use conventional commit messages
+- Follow branch naming conventions
+- Include meaningful commit descriptions
+- Reference issue numbers when applicable
