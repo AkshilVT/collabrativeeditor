@@ -66,65 +66,68 @@ export function CodeEditor() {
 
   return (
     <div className="relative h-full w-full">
-      <div
-        className={`h-full flex flex-col glass-bg ${styles.editorContainer}`}
-      >
+      <div className="h-full max-h-[calc(100%-82px)] flex flex-col gap-4">
         {/* Toolbar */}
-        <div className="flex items-center gap-6 px-6 pt-6">
-          <div className="flex items-center gap-2">
-            <label htmlFor="language" className="font-medium text-gray-700">
-              Language:
-            </label>
-            <select
-              id="language"
-              value={selectedLanguage}
-              onChange={(e) => handleLanguageChange(e.target.value)}
-              className="rounded-lg border px-2 py-1 bg-white/80 text-gray-800"
-            >
-              {LANGUAGES.map((lang) => (
-                <option key={lang.id} value={lang.id}>
-                  {lang.name}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="flex items-center gap-2">
-            <label htmlFor="theme" className="font-medium text-gray-700">
-              Theme:
-            </label>
-            <select
-              id="theme"
-              value={selectedTheme}
-              onChange={(e) => setSelectedTheme(e.target.value)}
-              className="rounded-lg border px-2 py-1 bg-white/80 text-gray-800"
-            >
-              {THEMES.map((theme) => (
-                <option key={theme.id} value={theme.id}>
-                  {theme.name}
-                </option>
-              ))}
-            </select>
+        <div className="p-4 flex items-center gap-4 glass-bg toolbar-enter">
+          <div className="flex items-center gap-6">
+            <div className="flex items-center gap-2">
+              <label htmlFor="language" className="font-medium text-gray-700">
+                Language:
+              </label>
+              <select
+                id="language"
+                value={selectedLanguage}
+                onChange={(e) => handleLanguageChange(e.target.value)}
+                className="rounded-lg border px-2 py-1 bg-white/80 text-gray-800"
+              >
+                {LANGUAGES.map((lang) => (
+                  <option key={lang.id} value={lang.id}>
+                    {lang.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="flex items-center gap-2">
+              <label htmlFor="theme" className="font-medium text-gray-700">
+                Theme:
+              </label>
+              <select
+                id="theme"
+                value={selectedTheme}
+                onChange={(e) => setSelectedTheme(e.target.value)}
+                className="rounded-lg border px-2 py-1 bg-white/80 text-gray-800"
+              >
+                {THEMES.map((theme) => (
+                  <option key={theme.id} value={theme.id}>
+                    {theme.name}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
         </div>
-        <div className="flex-1 overflow-auto m-4 relative ">
-          <div className={`${styles.editorWrapper}`}>
-            <Editor
-              height="100%"
-              defaultLanguage={selectedLanguage}
-              defaultValue="// Start coding here..."
-              theme={selectedTheme}
-              onMount={handleEditorDidMount}
-              options={{
-                minimap: { enabled: true },
-                fontSize: 14,
-                wordWrap: "on",
-                lineNumbers: "on",
-                renderWhitespace: "selection",
-                tabSize: 2,
-                scrollBeyondLastLine: false,
-                automaticLayout: true,
-              }}
-            />
+
+        <div className="h-full flex flex-col relative glass-bg">
+          <div className="flex-1 overflow-auto m-4 relative ">
+            <div className={`${styles.editorWrapper}`}>
+              <Editor
+                height="100%"
+                defaultLanguage={selectedLanguage}
+                defaultValue="// Start coding here..."
+                theme={selectedTheme}
+                onMount={handleEditorDidMount}
+                options={{
+                  minimap: { enabled: true },
+                  fontSize: 14,
+                  wordWrap: "on",
+                  lineNumbers: "on",
+                  renderWhitespace: "selection",
+                  tabSize: 2,
+                  scrollBeyondLastLine: false,
+                  automaticLayout: true,
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>

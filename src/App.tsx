@@ -113,7 +113,7 @@ function App() {
             </header>
             <div className="flex flex-1 w-full items-center justify-center gap-x-10 px-12 pb-12 pt-4 h-[calc(100vh-90px)]">
               {/* Sidebar */}
-              <aside className="flex flex-col justify-between h-full min-w-[260px] max-w-xs px-6 py-10 bg-white/30 backdrop-blur-lg rounded-3xl shadow-xl border border-white/40 transition-all">
+              <aside className="flex flex-col justify-between h-full min-w-[260px] max-w-xs px-6 py-10 bg-white/30 backdrop-blur-lg rounded-3xl shadow-xl border border-white/40 transition-all sidebar-enter">
                 <div className="flex flex-col gap-6">
                   {[
                     { key: "richText", label: "Markdown Editor" },
@@ -128,11 +128,11 @@ function App() {
                         </span>
                       ),
                     },
-                  ].map((tab) => (
+                  ].map((tab, index) => (
                     <button
                       key={tab.key}
                       onClick={() => setActiveEditor(tab.key as any)}
-                      className={`w-full py-3 text-base font-medium rounded-xl transition-all border glass-btn-bg
+                      className={`w-full py-3 text-base font-medium rounded-xl transition-all border glass-btn-bg sidebar-item
                         hover:bg-white/70
                         ${
                           activeEditor === tab.key
@@ -140,7 +140,10 @@ function App() {
                             : " text-gray-700 border-transparent hover:shadow-md"
                         }
                       `}
-                      style={{ fontFamily: "Inter, sans-serif" }}
+                      style={{
+                        fontFamily: "Inter, sans-serif",
+                        animationDelay: `${index * 0.1}s`,
+                      }}
                     >
                       <div className="flex flex-col items-center gap-1">
                         <span>{tab.label}</span>
@@ -214,7 +217,7 @@ function App() {
                       </div>
                     </div>
                     {/* Only the editor area will scroll */}
-                    <div className="flex-1 min-h-0 max-h-[calc(100vh-320px)] rounded-xl">
+                    <div className="flex-1 min-h-0 max-h-[calc(100vh-320px)] rounded-xl editor-enter">
                       {renderEditor()}
                     </div>
                   </div>

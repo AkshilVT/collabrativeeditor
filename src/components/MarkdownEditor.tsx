@@ -37,7 +37,7 @@ export function MarkdownEditor() {
   return (
     <div className="h-full max-h-[calc(100%-82px)] flex flex-col gap-4">
       {/* Toolbar */}
-      <div className="p-4 flex items-center gap-4 glass-bg">
+      <div className="p-4 flex items-center gap-4 glass-bg toolbar-enter">
         <EditorToolbar editor={editor} />
       </div>
 
