@@ -74,7 +74,7 @@ export function CodeEditor() {
             <Editor
               height="100%"
               defaultLanguage={selectedLanguage}
-              defaultValue="// Welcome to the Code Editor\n// Start coding here..."
+              defaultValue="// Start coding here..."
               theme={selectedTheme}
               onMount={handleEditorDidMount}
               options={{
