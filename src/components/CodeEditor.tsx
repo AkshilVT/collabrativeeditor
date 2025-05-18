@@ -69,7 +69,44 @@ export function CodeEditor() {
       <div
         className={`h-full flex flex-col glass-bg ${styles.editorContainer}`}
       >
-        <div className="flex-1 overflow-auto m-4 relative">
+        {/* Toolbar */}
+        <div className="flex items-center gap-6 px-6 pt-6">
+          <div className="flex items-center gap-2">
+            <label htmlFor="language" className="font-medium text-gray-700">
+              Language:
+            </label>
+            <select
+              id="language"
+              value={selectedLanguage}
+              onChange={(e) => handleLanguageChange(e.target.value)}
+              className="rounded-lg border px-2 py-1 bg-white/80 text-gray-800"
+            >
+              {LANGUAGES.map((lang) => (
+                <option key={lang.id} value={lang.id}>
+                  {lang.name}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="flex items-center gap-2">
+            <label htmlFor="theme" className="font-medium text-gray-700">
+              Theme:
+            </label>
+            <select
+              id="theme"
+              value={selectedTheme}
+              onChange={(e) => setSelectedTheme(e.target.value)}
+              className="rounded-lg border px-2 py-1 bg-white/80 text-gray-800"
+            >
+              {THEMES.map((theme) => (
+                <option key={theme.id} value={theme.id}>
+                  {theme.name}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+        <div className="flex-1 overflow-auto m-4 relative ">
           <div className={`${styles.editorWrapper}`}>
             <Editor
               height="100%"

@@ -77,3 +77,12 @@ We welcome contributions! Please see our [Contributing Guidelines](./development
 ## License
 
 MIT License - see [LICENSE](../LICENSE) for details
+
+## Known Issues
+
+### Monaco Editor Scrollbar Hiding
+
+- **Issue:** Hiding Monaco Editor's scrollbars (while keeping scrolling functional and overlays working) is not fully supported. Attempts using both CSS and Monaco's `scrollbar` options either break overlays, scrolling, or do not work consistently across all browsers and themes.
+- **Status:** Unresolved due to time constraints and limited knowledge of Monaco's internal rendering and custom scrollbar system.
+- **Impact:** Scrollbars may remain visible in the code editor, or hiding them may cause UI/UX issues.
+- **Workaround:** None at this time. Further research and/or community support is needed for a robust solution.

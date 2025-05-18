@@ -12,6 +12,9 @@
   border-radius: 16px;
   overflow: hidden;
   height: 100%;
+  /* position: relative;
+  display: flex;
+  flex-direction: column; */
 }
 
 /* Custom Monaco Editor Styles */
@@ -21,10 +24,6 @@
 
 :global(.monaco-editor .margin) {
   background: rgba(255, 255, 255, 0.1) !important;
-}
-
-:global(.monaco-editor .line-numbers) {
-  color: rgba(255, 255, 255, 0.5) !important;
 }
 
 :global(.monaco-editor .current-line) {
@@ -40,7 +39,6 @@
   padding: 0.5rem 1rem;
   border-radius: 9999px;
   font-size: 0.75rem;
-  color: #374151;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.2s ease;
 }
