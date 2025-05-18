@@ -9,13 +9,15 @@ interface User {
 }
 
 interface EditorState {
-  activeEditor: "markdown" | "richText" | "code";
+  activeEditor: "markdown" | "richText" | "code" | "collaborative";
   markdownEditor: Editor | null;
   richTextEditor: Editor | null;
   codeEditor: editor.IStandaloneCodeEditor | null;
   currentUser: User;
   users: User[];
-  setActiveEditor: (editor: "markdown" | "richText" | "code") => void;
+  setActiveEditor: (
+    editor: "markdown" | "richText" | "code" | "collaborative"
+  ) => void;
   setMarkdownEditor: (editor: Editor | null) => void;
   setRichTextEditor: (editor: Editor | null) => void;
   setCodeEditor: (editor: editor.IStandaloneCodeEditor | null) => void;
