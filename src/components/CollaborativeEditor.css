@@ -108,15 +108,14 @@
 }
 .liveblocks-toolbar button:hover,
 .liveblocks-toolbar button:focus {
-  background: #fff;
-  color: #2563eb;
+  background: rgb(255 255 255 / 0.7);
   box-shadow: 0 4px 16px 0 rgba(59, 130, 246, 0.12);
   outline: none;
 }
 .liveblocks-toolbar button[aria-pressed="true"],
 .liveblocks-toolbar button.active {
-  background: #e0e7ff;
-  color: #2563eb;
+  background-color: rgb(239 246 255 / var(--tw-bg-opacity, 1));
+  color: rgb(37 99 235 / var(--tw-text-opacity, 1));
   box-shadow: 0 4px 16px 0 rgba(59, 130, 246, 0.16);
 }
 
@@ -128,7 +127,6 @@
 
 /* Glassmorphism for Liveblocks popper dropdowns */
 [data-radix-popper-content-wrapper] > div {
-  /* background: rgba(255, 255, 255, 0.7); */
   backdrop-filter: blur(12px);
   border-radius: 1rem;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18),
@@ -155,17 +153,38 @@
   color: #2563eb;
 }
 
-/* Glassmorphism and sizing for tooltips */
-[role="tooltip"] {
+/* Glassmorphism and sizing for tooltips inside Liveblocks popper */
+[data-radix-popper-content-wrapper] [role="tooltip"] {
   background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
   border-radius: 0.75rem;
-  box-shadow: 0 4px 16px 0 rgba(59, 130, 246, 0.1);
+  box-shadow: 0 6px 24px 0 rgba(59, 130, 246, 0.13),
+    0 1.5px 4px 0 rgba(0, 0, 0, 0.04);
   border: 1px solid #e0e7ef;
-  padding: 0.35rem 0.75rem; /* More padding for comfort */
-  font-size: 0.85rem; /* Slightly smaller text */
-  color: #1f2937;
-  max-width: 220px; /* Prevents overly wide tooltips */
+  padding: 0.4rem 1rem;
+  font-size: 0.92rem;
+  color: #1e293b;
+  font-weight: 500;
+  max-width: 220px;
   z-index: 9999;
+  letter-spacing: 0.01em;
   transition: background 0.15s, box-shadow 0.15s;
+  text-align: center;
+  /* Optional: subtle shadow for depth */
+}
+
+/* Optional: add a subtle fade-in animation */
+[data-radix-popper-content-wrapper] [role="tooltip"] {
+  animation: tooltip-fade-in 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes tooltip-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
