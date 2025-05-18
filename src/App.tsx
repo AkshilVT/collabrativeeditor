@@ -139,10 +139,11 @@ function App() {
               </aside>
               {/* Editor Area */}
               <main className="flex-1 flex flex-col items-center justify-center h-full">
-                <div className="relative w-full max-w-5xl h-full glass-bg p-10 dotted-grid flex flex-col items-center justify-start">
+                <div className="relative w-full max-w-5xl h-full dotted-grid flex flex-col items-center justify-start">
                   <div className="w-full h-full flex flex-col">
+                    {/* Heading */}
                     <div
-                      className="text-2xl font-bold text-gray-800 mb-6 text-left"
+                      className="text-2xl font-bold text-gray-800 mb-6 text-left glass-bg px-6 py-4 rounded-xl"
                       style={{ fontFamily: "Inter, sans-serif" }}
                     >
                       {activeEditor === "richText" && "Markdown Editor"}

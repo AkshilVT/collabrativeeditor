@@ -139,6 +139,9 @@
   color: #1f2937;
   font-weight: 500;
   transition: background 0.15s, color 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 [data-radix-popper-content-wrapper] [role="option"][data-highlighted] {
