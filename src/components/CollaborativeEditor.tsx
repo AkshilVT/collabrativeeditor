@@ -1,6 +1,6 @@
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
-import { useRoom } from "@liveblocks/react";
+import { useRoom, useOthers, useSelf } from "@liveblocks/react";
 import {
   Toolbar,
   FloatingToolbar,
@@ -14,6 +14,8 @@ export function CollaborativeEditor() {
   const room = useRoom();
   const liveblocks = useLiveblocksExtension();
   const isEditorReady = useIsEditorReady();
+  const others = useOthers();
+  const self = useSelf();
 
   const editor = useEditor({
     extensions: [
@@ -85,7 +87,7 @@ export function CollaborativeEditor() {
       </div>
 
       {/* Editor */}
-      <div className="flex-1 overflow-auto m-4">
+      <div className="flex-1 overflow-auto m-4 relative">
         <div className="rounded-2xl h-full">
           <EditorContent editor={editor} className="editor" />
         </div>

@@ -4,6 +4,7 @@ import { RichTextEditor } from "./components/RichTextEditor";
 import { CodeEditor } from "./components/CodeEditor";
 import { CollaborativeEditor } from "./components/CollaborativeEditor";
 import { LiveblocksProvider, RoomProvider } from "@liveblocks/react";
+import { ActiveUsers } from "./components/ActiveUsers";
 
 function App() {
   const { activeEditor, setActiveEditor } = useStore();
@@ -135,36 +136,9 @@ function App() {
                     </button>
                   ))}
                 </div>
-                <div className="mt-10 bg-white/40 rounded-2xl shadow-lg border border-white/50 p-5 flex flex-col items-center gap-4">
-                  <span className="text-base font-semibold text-gray-700 mb-1">
-                    Active Users
-                  </span>
-                  <div className="flex flex-col gap-3">
-                    <div className="relative">
-                      <img
-                        src="https://randomuser.me/api/portraits/women/44.jpg"
-                        alt="User 1"
-                        className="w-10 h-10 rounded-full border-2 border-white shadow"
-                      />
-                      <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full ring-2 ring-white shadow animate-pulse"></span>
-                    </div>
-                    <div className="relative">
-                      <img
-                        src="https://randomuser.me/api/portraits/men/32.jpg"
-                        alt="User 2"
-                        className="w-10 h-10 rounded-full border-2 border-white shadow"
-                      />
-                      <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full ring-2 ring-white shadow animate-pulse"></span>
-                    </div>
-                    <div className="relative">
-                      <img
-                        src="https://randomuser.me/api/portraits/women/68.jpg"
-                        alt="User 3"
-                        className="w-10 h-10 rounded-full border-2 border-white shadow"
-                      />
-                      <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full ring-2 ring-white shadow animate-pulse"></span>
-                    </div>
-                  </div>
+                {/* Active users */}
+                <div className="mt-10 w-full flex justify-center">
+                  <ActiveUsers />
                 </div>
               </aside>
               {/* Editor Area */}
