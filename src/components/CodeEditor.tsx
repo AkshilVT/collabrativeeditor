@@ -65,48 +65,9 @@ export function CodeEditor() {
   }, [setCodeEditor]);
 
   return (
-    <div className="h-full max-h-[calc(100%-82px)] flex flex-col gap-4">
-      {/* Toolbar */}
-      <div className={styles.toolbar}>
-        <div className="flex items-center gap-2">
-          <label htmlFor="language" className={styles.label}>
-            Language:
-          </label>
-          <select
-            id="language"
-            value={selectedLanguage}
-            onChange={(e) => handleLanguageChange(e.target.value)}
-            className={styles.select}
-          >
-            {LANGUAGES.map((lang) => (
-              <option key={lang.id} value={lang.id}>
-                {lang.name}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <div className="flex items-center gap-2">
-          <label htmlFor="theme" className={styles.label}>
-            Theme:
-          </label>
-          <select
-            id="theme"
-            value={selectedTheme}
-            onChange={(e) => setSelectedTheme(e.target.value)}
-            className={styles.select}
-          >
-            {THEMES.map((theme) => (
-              <option key={theme.id} value={theme.id}>
-                {theme.name}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
-
+    <div className="relative h-full w-full">
       <div
-        className={`h-full flex flex-col relative glass-bg ${styles.editorContainer}`}
+        className={`h-full flex flex-col glass-bg ${styles.editorContainer}`}
       >
         <div className="flex-1 overflow-auto m-4 relative">
           <div className={`${styles.editorWrapper}`}>
@@ -129,10 +90,10 @@ export function CodeEditor() {
             />
           </div>
         </div>
-        {/* Word Count */}
-        <div className={styles.wordCount}>
-          {wordCount} word{wordCount !== 1 ? "s" : ""}
-        </div>
+      </div>
+      {/* Word Count - OUTSIDE the scrollable area */}
+      <div className="absolute bottom-8 right-12 bg-white/60 backdrop-blur px-3 py-1 rounded-full text-xs text-gray-700 shadow z-50 pointer-events-none">
+        {wordCount} word{wordCount !== 1 ? "s" : ""}
       </div>
     </div>
   );

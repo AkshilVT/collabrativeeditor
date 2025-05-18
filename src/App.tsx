@@ -10,6 +10,7 @@ import { useState } from "react";
 function App() {
   const { activeEditor, setActiveEditor } = useStore();
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
+  const [isAccordionOpen, setIsAccordionOpen] = useState(false);
 
   const renderEditor = () => {
     switch (activeEditor) {
@@ -158,14 +159,59 @@ function App() {
                 <div className="relative w-full max-w-5xl h-full dotted-grid flex flex-col items-center justify-start">
                   <div className="w-full h-full flex flex-col">
                     {/* Heading */}
-                    <div
-                      className="text-2xl font-bold text-gray-800 mb-6 text-left glass-bg px-6 py-4 rounded-xl"
-                      style={{ fontFamily: "Inter, sans-serif" }}
-                    >
-                      {activeEditor === "richText" && "Markdown Editor"}
-                      {activeEditor === "code" && "Code Editor"}
-                      {activeEditor === "collaborative" &&
-                        "Collaborative Editor"}
+                    <div className="mb-6">
+                      <div
+                        className="text-2xl font-bold text-gray-800 text-left glass-bg px-6 py-4 rounded-xl cursor-pointer flex items-center justify-between"
+                        style={{ fontFamily: "Inter, sans-serif" }}
+                        onClick={() => setIsAccordionOpen(!isAccordionOpen)}
+                      >
+                        <span>
+                          {activeEditor === "richText" && "Markdown Editor"}
+                          {activeEditor === "code" && "Code Editor"}
+                          {activeEditor === "collaborative" &&
+                            "Collaborative Editor"}
+                        </span>
+                        <svg
+                          className={`w-6 h-6 transform transition-transform duration-200 ${
+                            isAccordionOpen ? "rotate-180" : ""
+                          }`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M19 9l-7 7-7-7"
+                          />
+                        </svg>
+                      </div>
+                      <div
+                        className={`glass-bg px-6 py-4 mt-2 rounded-xl transition-all duration-200 ${
+                          isAccordionOpen ? "block" : "hidden"
+                        }`}
+                      >
+                        {activeEditor === "richText" && (
+                          <p className="text-gray-600">
+                            A powerful markdown editor with live preview, syntax
+                            highlighting, and export capabilities.
+                          </p>
+                        )}
+                        {activeEditor === "code" && (
+                          <p className="text-gray-600">
+                            A feature-rich code editor with syntax highlighting,
+                            line numbers, and multiple language support.
+                          </p>
+                        )}
+                        {activeEditor === "collaborative" && (
+                          <p className="text-gray-600">
+                            Real-time collaborative editor with presence
+                            awareness, cursor tracking, and rich text
+                            formatting.
+                          </p>
+                        )}
+                      </div>
                     </div>
                     {/* Only the editor area will scroll */}
                     <div className="flex-1 min-h-0 max-h-[calc(100vh-320px)] rounded-xl">
