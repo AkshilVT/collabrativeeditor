@@ -9,29 +9,24 @@ interface User {
 }
 
 interface EditorState {
-  activeEditor: "markdown" | "richText" | "code" | "collaborative";
-  markdownEditor: Editor | null;
+  activeEditor: "richText" | "code" | "collaborative";
   richTextEditor: Editor | null;
   codeEditor: editor.IStandaloneCodeEditor | null;
   currentUser: User;
   users: User[];
-  setActiveEditor: (
-    editor: "markdown" | "richText" | "code" | "collaborative"
-  ) => void;
-  setMarkdownEditor: (editor: Editor | null) => void;
+  setActiveEditor: (editor: "richText" | "code" | "collaborative") => void;
   setRichTextEditor: (editor: Editor | null) => void;
   setCodeEditor: (editor: editor.IStandaloneCodeEditor | null) => void;
   addUser: (user: User) => void;
   removeUser: (userId: string) => void;
 }
 
-const generateRandomColor = () => {
+function generateRandomColor() {
   return "#" + Math.floor(Math.random() * 16777215).toString(16);
-};
+}
 
 export const useStore = create<EditorState>((set) => ({
-  activeEditor: "markdown",
-  markdownEditor: null,
+  activeEditor: "richText",
   richTextEditor: null,
   codeEditor: null,
   currentUser: {
@@ -41,7 +36,6 @@ export const useStore = create<EditorState>((set) => ({
   },
   users: [],
   setActiveEditor: (editor) => set({ activeEditor: editor }),
-  setMarkdownEditor: (editor) => set({ markdownEditor: editor }),
   setRichTextEditor: (editor) => set({ richTextEditor: editor }),
   setCodeEditor: (editor) => set({ codeEditor: editor }),
   addUser: (user) => set((state) => ({ users: [...state.users, user] })),

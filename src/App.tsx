@@ -1,6 +1,5 @@
 import { useStore } from "./store/useStore";
 import { MarkdownEditor } from "./components/MarkdownEditor";
-import { RichTextEditor } from "./components/RichTextEditor";
 import { CodeEditor } from "./components/CodeEditor";
 import { CollaborativeEditor } from "./components/CollaborativeEditor";
 import { LiveblocksProvider, RoomProvider } from "@liveblocks/react";
@@ -11,10 +10,8 @@ function App() {
 
   const renderEditor = () => {
     switch (activeEditor) {
-      case "markdown":
-        return <MarkdownEditor />;
       case "richText":
-        return <RichTextEditor />;
+        return <MarkdownEditor />;
       case "code":
         return <CodeEditor />;
       case "collaborative":
@@ -114,8 +111,7 @@ function App() {
               <aside className="flex flex-col justify-between h-full min-w-[260px] max-w-xs px-6 py-10 bg-white/30 backdrop-blur-lg rounded-3xl shadow-xl border border-white/40 transition-all">
                 <div className="flex flex-col gap-6">
                   {[
-                    { key: "markdown", label: "Markdown Editor" },
-                    { key: "richText", label: "Rich Text" },
+                    { key: "richText", label: "Markdown Editor" },
                     { key: "code", label: "Code Editor" },
                     { key: "collaborative", label: "Collaborative Editor" },
                   ].map((tab) => (
@@ -149,8 +145,7 @@ function App() {
                       className="text-2xl font-bold text-gray-800 mb-6 text-left"
                       style={{ fontFamily: "Inter, sans-serif" }}
                     >
-                      {activeEditor === "markdown" && "Markdown Editor"}
-                      {activeEditor === "richText" && "Rich Text Editor"}
+                      {activeEditor === "richText" && "Markdown Editor"}
                       {activeEditor === "code" && "Code Editor"}
                       {activeEditor === "collaborative" &&
                         "Collaborative Editor"}
