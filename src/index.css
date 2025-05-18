@@ -127,3 +127,28 @@
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.28);
 }
+
+.glass-btn-primary {
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.18) 60%,
+    rgba(147, 197, 253, 0.12) 100%
+  );
+  border: 1.5px solid rgba(59, 130, 246, 0.35);
+  box-shadow: 0 4px 24px 0 rgba(59, 130, 246, 0.18),
+    0 1.5px 8px 0 rgba(255, 255, 255, 0.18) inset;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: box-shadow 0.2s, background 0.2s, border 0.2s;
+}
+.glass-btn-primary:hover,
+.glass-btn-primary:focus {
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.28) 60%,
+    rgba(147, 197, 253, 0.22) 100%
+  );
+  box-shadow: 0 6px 32px 0 rgba(59, 130, 246, 0.28),
+    0 2px 12px 0 rgba(255, 255, 255, 0.22) inset;
+  border: 1.5px solid rgba(59, 130, 246, 0.55);
+}

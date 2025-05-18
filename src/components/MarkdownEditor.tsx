@@ -10,6 +10,7 @@ export function MarkdownEditor() {
 
   const editor = useEditor({
     extensions: [StarterKit],
+    content: "Hello World!",
     editorProps: {
       attributes: {
         class:

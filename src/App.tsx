@@ -4,9 +4,12 @@ import { CodeEditor } from "./components/CodeEditor";
 import { CollaborativeEditor } from "./components/CollaborativeEditor";
 import { LiveblocksProvider, RoomProvider } from "@liveblocks/react";
 import { ActiveUsers } from "./components/ActiveUsers";
+import { ShareModal } from "./components/ShareModal";
+import { useState } from "react";
 
 function App() {
   const { activeEditor, setActiveEditor } = useStore();
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
 
   const renderEditor = () => {
     switch (activeEditor) {
@@ -100,7 +103,8 @@ function App() {
                 </span>
               </div>
               <button
-                className="px-8 py-2 glass-btn-bg text-blue-700 rounded-full shadow-lg font-semibold text-lg ml-auto border border-blue-200 transition-all
+                onClick={() => setIsShareModalOpen(true)}
+                className="px-8 py-2 glass-btn-primary text-blue-800 rounded-full shadow-lg font-semibold text-lg ml-auto border transition-all
                   hover:bg-white/70 active:bg-white/90 focus:ring-2 focus:ring-blue-200 focus:outline-none"
               >
                 Share
@@ -172,6 +176,10 @@ function App() {
               </main>
             </div>
           </div>
+          <ShareModal
+            isOpen={isShareModalOpen}
+            onClose={() => setIsShareModalOpen(false)}
+          />
         </div>
       </RoomProvider>
     </LiveblocksProvider>
