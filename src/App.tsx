@@ -6,6 +6,7 @@ import { LiveblocksProvider, RoomProvider } from "@liveblocks/react";
 import { ActiveUsers } from "./components/ActiveUsers";
 import { ShareModal } from "./components/ShareModal";
 import { Footer } from "./components/Footer";
+import { BrowserNotice } from "./components/BrowserNotice";
 import { useState } from "react";
 
 function App() {
@@ -226,6 +227,7 @@ function App() {
               </main>
             </div>
             <Footer />
+            <BrowserNotice />
           </div>
           <ShareModal
             isOpen={isShareModalOpen}

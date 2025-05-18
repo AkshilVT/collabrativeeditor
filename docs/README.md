@@ -111,6 +111,10 @@ src/
 - **Styling**: Tailwind CSS
 - **Deployment**: Vercel
 
+## Browser Compatibility
+
+> **Note:** This application works best in Google Chrome on desktop/laptop devices. While it may function in other browsers, some features (particularly real-time collaboration and advanced editor capabilities) are optimized for Chrome.
+
 ## Features
 
 - Markdown editor with live preview
