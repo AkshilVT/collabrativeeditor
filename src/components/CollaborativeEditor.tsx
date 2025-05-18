@@ -61,11 +61,13 @@ export function CollaborativeEditor() {
           <Toolbar.Toggle
             name="Bold"
             active={editor ? editor.isActive("bold") : false}
+            shortcut=" ⌘B"
             onClick={() => editor?.chain().focus().toggleBold().run()}
           />
           <Toolbar.Toggle
             name="Italic"
             active={editor ? editor.isActive("italic") : false}
+            shortcut=" ⌘I"
             onClick={() => editor?.chain().focus().toggleItalic().run()}
           />
           <Toolbar.Toggle
@@ -74,8 +76,9 @@ export function CollaborativeEditor() {
             onClick={() => editor?.chain().focus().toggleStrike().run()}
           />
           <Toolbar.Toggle
-            name="<>"
+            name="< >"
             active={editor ? editor.isActive("code") : false}
+            shortcut=" ⌘E"
             onClick={() => editor?.chain().focus().toggleCode().run()}
           />
         </Toolbar>
@@ -88,8 +91,33 @@ export function CollaborativeEditor() {
         </div>
         <FloatingToolbar
           editor={editor}
-          className="glass-btn-bg shadow-lg rounded-xl border border-gray-100 p-2 flex items-center gap-2"
-        />
+          offset={12}
+          className="glass-btn-bg shadow-lg w-max rounded-xl border border-gray-100 px-4 py-2 flex items-center gap-4"
+        >
+          <Toolbar.Toggle
+            name="Bold"
+            active={editor ? editor.isActive("bold") : false}
+            shortcut=" ⌘B"
+            onClick={() => editor?.chain().focus().toggleBold().run()}
+          />
+          <Toolbar.Toggle
+            name="Italic"
+            active={editor ? editor.isActive("italic") : false}
+            shortcut=" ⌘I"
+            onClick={() => editor?.chain().focus().toggleItalic().run()}
+          />
+          <Toolbar.Toggle
+            name="Strikethrough"
+            active={editor ? editor.isActive("strike") : false}
+            onClick={() => editor?.chain().focus().toggleStrike().run()}
+          />
+          <Toolbar.Toggle
+            name="< >"
+            active={editor ? editor.isActive("code") : false}
+            shortcut=" ⌘E"
+            onClick={() => editor?.chain().focus().toggleCode().run()}
+          />
+        </FloatingToolbar>
         {/* Word Count */}
         <div className="absolute bottom-4 right-8 bg-white/60 backdrop-blur px-3 py-1 rounded-full text-xs text-gray-700 shadow">
           {wordCount} word{wordCount !== 1 ? "s" : ""}

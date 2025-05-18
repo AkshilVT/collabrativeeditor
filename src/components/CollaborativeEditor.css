@@ -119,12 +119,6 @@
   box-shadow: 0 4px 16px 0 rgba(59, 130, 246, 0.16);
 }
 
-/* Center the floating toolbar horizontally */
-.floating-toolbar-center {
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-}
-
 /* Glassmorphism for Liveblocks popper dropdowns */
 [data-radix-popper-content-wrapper] > div {
   backdrop-filter: blur(12px);
@@ -132,7 +126,7 @@
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18),
     0 1.5px 4px 0 rgba(0, 0, 0, 0.04);
   border: 1px solid #e0e7ef;
-  padding: 0.5rem 0.25rem;
+  padding: 8px 12px;
   /* Optional: smooth transition for open/close */
   transition: background 0.2s, box-shadow 0.2s;
 }
@@ -141,7 +135,6 @@
 [data-radix-popper-content-wrapper] [role="option"] {
   background: transparent;
   border-radius: 0.75rem;
-  margin: 0.15rem 0.25rem;
   padding: 0.5rem 1rem;
   color: #1f2937;
   font-weight: 500;
