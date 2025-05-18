@@ -113,7 +113,16 @@ function App() {
                   {[
                     { key: "richText", label: "Markdown Editor" },
                     { key: "code", label: "Code Editor" },
-                    { key: "collaborative", label: "Collaborative Editor" },
+                    {
+                      key: "collaborative",
+                      label: "Collaborative Editor",
+                      tag: (
+                        <span className="flex items-center gap-1.5 text-xs font-medium text-green-600 bg-green-50 px-2 py-0.5 rounded-full">
+                          <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                          Live
+                        </span>
+                      ),
+                    },
                   ].map((tab) => (
                     <button
                       key={tab.key}
@@ -128,7 +137,10 @@ function App() {
                       `}
                       style={{ fontFamily: "Inter, sans-serif" }}
                     >
-                      {tab.label}
+                      <div className="flex flex-col items-center gap-1">
+                        <span>{tab.label}</span>
+                        {tab.tag || null}
+                      </div>
                     </button>
                   ))}
                 </div>
