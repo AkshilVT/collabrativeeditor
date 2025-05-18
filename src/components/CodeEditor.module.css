@@ -1,0 +1,89 @@
+.editorContainer {
+  position: relative;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.editorContainer:hover {
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
+}
+
+.editorWrapper {
+  border-radius: 16px;
+  overflow: hidden;
+  height: 100%;
+}
+
+/* Custom Monaco Editor Styles */
+:global(.monaco-editor) {
+  padding: 1rem;
+}
+
+:global(.monaco-editor .margin) {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+:global(.monaco-editor .line-numbers) {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+:global(.monaco-editor .current-line) {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.wordCount {
+  position: absolute;
+  bottom: 1rem;
+  right: 2rem;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  color: #374151;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.wordCount:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: translateY(-1px);
+}
+
+/* Toolbar Styles */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 16px;
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.select {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  color: #374151;
+  transition: all 0.2s ease;
+}
+
+.select:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+}
