@@ -1,5 +1,11 @@
 # Collaborative Editor Suite Documentation
 
+![App Demo](./public/demo.png)
+_Main interface: Markdown Editor_
+
+![Collaborative Editor Demo](./public/collobrativeeditor.png)
+_Real-time Collaborative Editor in action_
+
 ## Overview
 
 This documentation covers the implementation details, architecture, and guidelines for the Collaborative Editor Suite - a modern web application built with Next.js that provides three distinct editor modes: Markdown, Rich Text, and Code.
