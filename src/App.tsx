@@ -5,6 +5,7 @@ import { CollaborativeEditor } from "./components/CollaborativeEditor";
 import { LiveblocksProvider, RoomProvider } from "@liveblocks/react";
 import { ActiveUsers } from "./components/ActiveUsers";
 import { ShareModal } from "./components/ShareModal";
+import { Footer } from "./components/Footer";
 import { useState } from "react";
 
 function App() {
@@ -224,6 +225,7 @@ function App() {
                 </div>
               </main>
             </div>
+            <Footer />
           </div>
           <ShareModal
             isOpen={isShareModalOpen}

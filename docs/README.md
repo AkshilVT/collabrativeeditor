@@ -4,14 +4,69 @@
 
 This documentation covers the implementation details, architecture, and guidelines for the Collaborative Editor Suite - a modern web application built with Next.js that provides three distinct editor modes: Markdown, Rich Text, and Code.
 
+## Features
+
+### Markdown Editor
+
+- Clean, distraction-free markdown editing experience
+- Live preview of rendered markdown
+- Word count and basic statistics
+- Default editor selection for quick access
+- Export capabilities for markdown and HTML formats
+
+### Code Editor
+
+- Syntax highlighting for multiple programming languages
+- Customizable themes for different coding preferences
+- Language-specific features and support
+- Line numbers and code folding
+- Real-time error detection and linting
+
+### Collaborative Editor
+
+- Real-time multi-user collaboration
+- Live presence indicators showing active users
+- Floating toolbar for quick formatting
+- Selection-based collaboration with cursor tracking
+- Rich text formatting capabilities
+- Conflict-free editing with automatic merging
+
+## Engineer's Note
+
+This project was built in approximately 10 hours, including research and development time. The development process involved:
+
+- Creating comprehensive documentation first to guide the AI-assisted development
+- Using Cursor IDE as a development companion
+- Following a structured approach with clear project requirements (see [PRD.md](../PRD.md))
+
+For those interested in the development process and technical decisions, I've documented everything in the [PRD.md](../PRD.md) and the [docs](./) directory. Your feedback and suggestions are welcome! If you find this project interesting, sharing it on social media would be greatly appreciated and would motivate me to build more similar projects.
+
 ## Documentation Structure
 
 ### Core Documentation
 
 - [Getting Started](./getting-started.md)
 - [Architecture Overview](./architecture.md)
-- [Project Structure](./project-structure.md)
 - [Design System](./design-system.md)
+
+### Source Code Structure
+
+```
+src/
+├── components/           # React components
+│   ├── ActiveUsers.tsx  # Real-time user presence
+│   ├── CodeEditor.tsx   # Code editor implementation
+│   ├── CollaborativeEditor.tsx  # Real-time collaborative editor
+│   ├── Footer.tsx       # Application footer
+│   ├── MarkdownEditor.tsx  # Markdown editor implementation
+│   └── ShareModal.tsx   # Social sharing functionality
+├── store/               # State management
+│   └── useStore.ts     # Global state hooks
+├── assets/             # Static assets
+├── App.tsx             # Main application component
+├── main.tsx            # Application entry point
+└── index.css           # Global styles
+```
 
 ### Editor Documentation
 
@@ -47,12 +102,12 @@ This documentation covers the implementation details, architecture, and guidelin
 
 ## Tech Stack
 
-- **Frontend Framework**: Next.js 14 (App Router)
+- **Frontend Framework**: React with Vite
 - **Language**: TypeScript
 - **UI Library**: React
 - **Rich Text Editor**: TipTap (ProseMirror)
-- **Code Editor**: CodeMirror 6
-- **Real-time Collaboration**: Liveblocks/Yjs
+- **Code Editor**: Monaco Editor
+- **Real-time Collaboration**: Liveblocks
 - **Styling**: Tailwind CSS
 - **Deployment**: Vercel
 
